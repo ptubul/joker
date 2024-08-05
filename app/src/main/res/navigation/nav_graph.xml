@@ -12,11 +12,18 @@
         <action
             android:id="@+id/action_jokeListFragment_to_jokeFragment"
             app:destination="@id/jokeFragment" />
+        <action
+            android:id="@+id/action_myJokeListFragment"
+            app:destination="@id/jokeListFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/jokeFragment"
         android:name="com.jokerapp.view.JokeFragment"
         android:label="Item Detail"
-        tools:layout="@layout/fragment_joke" />
+        tools:layout="@layout/fragment_joke">
+    <argument
+        android:name="itemId"
+        app:argType="long" />
+    </fragment>
 </navigation>

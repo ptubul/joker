@@ -20,16 +20,15 @@ public class JokeViewModel extends ViewModel {
             loadItems();
 
         }
-        Log.d("AA", items.toString());
         return items;
     }
 
     private void loadItems() {
         List<JokeItem> itemList = new ArrayList<>();
-        itemList.add(new JokeItem("https://example.com/image1.jpg", "Title 1", "Owner 1"));
-        itemList.add(new JokeItem("https://example.com/image2.jpg", "Title 5", "Owner 2"));
-        itemList.add(new JokeItem("https://example.com/image1.jpg", "Title 1", "Owner 1"));
-        itemList.add(new JokeItem("https://example.com/image2.jpg", "Title 5", "Owner 2"));
+        itemList.add(new JokeItem( 1, "https://example.com/image1.jpg", "Title 1", "Owner 1"));
+        itemList.add(new JokeItem(2,"https://example.com/image2.jpg", "Title 5", "Owner 2"));
+        itemList.add(new JokeItem(3,"https://example.com/image1.jpg", "Title 1", "Owner 1"));
+        itemList.add(new JokeItem(4, "https://example.com/image2.jpg", "Title 5", "Owner 2"));
         items.setValue(itemList);
     }
 }

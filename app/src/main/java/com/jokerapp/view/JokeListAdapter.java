@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.jokerapp.R;
 import com.jokerapp.model.JokeItem;
+import com.jokerapp.viewModel.JokeViewModel;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -70,6 +71,14 @@ public class JokeListAdapter extends RecyclerView.Adapter<JokeListAdapter.JokeVi
                     listener.onItemClick(joke);
                 }
             });
+        }
+
+        public void filterItemsByOwner(String ownerName) {
+//            JokeViewModel.filterItemsByOwner(ownerName);
+        }
+
+        public void resetItems() {
+//            JokeViewModel.resetItems();
         }
     }
 }

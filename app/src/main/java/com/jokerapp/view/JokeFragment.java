@@ -11,12 +11,13 @@ import androidx.fragment.app.Fragment;
 
 import com.jokerapp.R;
 
+import org.w3c.dom.Text;
+
 public class JokeFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_joke, container, false);
-
         TextView titleView = view.findViewById(R.id.detail_title);
         TextView ownerView = view.findViewById(R.id.detail_owner);
 
