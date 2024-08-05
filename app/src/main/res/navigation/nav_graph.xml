@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/jokeListFragment">
+
+    <fragment
+        android:id="@+id/jokeListFragment"
+        android:name="com.jokerapp.view.JokeListFragment"
+        android:label="Item List"
+        tools:layout="@layout/fragment_joke_list">
+        <action
+            android:id="@+id/action_jokeListFragment_to_jokeFragment"
+            app:destination="@id/jokeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/jokeFragment"
+        android:name="com.jokerapp.view.JokeFragment"
+        android:label="Item Detail"
+        tools:layout="@layout/fragment_joke" />
+</navigation>
