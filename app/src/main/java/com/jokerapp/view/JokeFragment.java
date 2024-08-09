@@ -1,5 +1,6 @@
 package com.jokerapp.view;
 
+import android.graphics.ColorFilter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,7 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import  android.graphics.Color;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -59,6 +60,7 @@ public class JokeFragment extends Fragment {
             String ownerName = getArguments().getString("ownerName");
             String text = getArguments().getString("text");
             isEditMode = getArguments().getBoolean("editMode", false);
+            setEditMode();
             titleView.setText(title);
             ownerNameView.setText(ownerName);
             textView.setText(text);
@@ -77,14 +79,14 @@ public class JokeFragment extends Fragment {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toggleEditMode();
+                setEditMode();
             }
         });
 
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toggleEditMode();
+                setEditMode();
             }
         });
 
@@ -105,12 +107,26 @@ public class JokeFragment extends Fragment {
         return view;
     }
 
-    private void toggleEditMode() {
-        isEditMode = !isEditMode;
+    private void setEditMode() {
         titleView.setEnabled(isEditMode);
         ownerNameView.setEnabled(isEditMode);
         textView.setEnabled(isEditMode);
         saveButton.setVisibility(isEditMode ? View.VISIBLE : View.GONE);
         cancelButton.setVisibility(isEditMode ? View.VISIBLE : View.GONE);
+        editButton.setEnabled(!isEditMode);
+        generateMemeButton.setEnabled(isEditMode);
+        addImageButton.setEnabled(isEditMode);
+
+        if (isEditMode){
+            editButton.setColorFilter(Color.GRAY);
+            generateMemeButton.clearColorFilter();
+            addImageButton.clearColorFilter();
+        }
+        else {
+            editButton.clearColorFilter();
+            generateMemeButton.setColorFilter(Color.GRAY);
+            addImageButton.setColorFilter(Color.GRAY);
+        }
+        isEditMode = !isEditMode;
     }
 }
