@@ -39,10 +39,9 @@
 //        return navController.navigateUp() || super.onSupportNavigateUp();
 //    }
 //}
-package com.jokerapp;
+package com.jokerapp.view;
 
 import com.jokerapp.R;
-import com.jokerapp.view.JokeListFragment;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -97,10 +96,8 @@ public class MainActivity extends AppCompatActivity {
             if (id == R.id.action_my_jokes){
 //             Handle "My Jokes" action
                 Toast.makeText(this, "My Jokes clicked", Toast.LENGTH_SHORT).show();
-//                Bundle bundle = new Bundle();
-//                bundle.putString("ownerName", "YourOwnerName"); // Replace with actual owner name
-//                navController.navigate(R.id.action_myJokeListFragment, bundle);
-//                return true;
+                return  true;
+//
 //            // Implement navigation or other logic her
             } else if (id == R.id.action_logout) {
                 // Handle "Logout" action

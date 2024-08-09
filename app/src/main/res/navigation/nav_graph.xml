@@ -11,10 +11,13 @@
         tools:layout="@layout/fragment_joke_list">
         <action
             android:id="@+id/action_jokeListFragment_to_jokeFragment"
-            app:destination="@id/jokeFragment" />
+            app:destination="@id/jokeFragment"/>
         <action
             android:id="@+id/action_myJokeListFragment"
             app:destination="@id/jokeListFragment" />
+        <action
+            android:id="@+id/action_jokeListFragment_to_jokeDetailsFragment"
+            app:destination="@id/jokeDetailsFragment"/>
     </fragment>
 
     <fragment
@@ -25,5 +28,23 @@
     <argument
         android:name="itemId"
         app:argType="long" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/jokeDetailsFragment"
+        android:name="com.jokerapp.view.JokeListFragment"
+        android:label="Joke Details">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="ownerName"
+            app:argType="string" />
+        <argument
+            android:name="text"
+            app:argType="string" />
+        <argument
+            android:name="editMode"
+            app:argType="boolean" />
     </fragment>
 </navigation>

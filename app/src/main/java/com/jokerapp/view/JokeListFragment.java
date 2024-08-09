@@ -40,7 +40,7 @@ public class JokeListFragment extends Fragment {
                         Bundle bundle = new Bundle();
                         bundle.putString("title", item.getTitle());
                         bundle.putString("ownerName", item.getOwnerName());
-                        Navigation.findNavController(view).navigate(R.id.action_jokeListFragment_to_jokeFragment, bundle);
+                        Navigation.findNavController(view).navigate(R.id.action_jokeListFragment_to_jokeFragment    , bundle);
                     }
                 });
                 recyclerView.setAdapter(adapter);
