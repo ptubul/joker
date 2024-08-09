@@ -38,6 +38,7 @@ public class JokeFragment extends Fragment {
     private  ImageButton editButton;
     private  ImageButton addImageButton;
     private  ImageButton generateMemeButton;
+    private  ImageButton deleteButton;
 
     @Nullable
     @Override
@@ -53,6 +54,7 @@ public class JokeFragment extends Fragment {
         editButton = view.findViewById(R.id.edit_button);
         addImageButton = view.findViewById(R.id.add_image_button);
         generateMemeButton = view.findViewById(R.id.generate_meme_button);
+        deleteButton = view.findViewById(R.id.delete_button);
 
         if (getArguments() != null) {
 
