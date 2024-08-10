@@ -35,8 +35,29 @@ public class JokeViewModel extends ViewModel {
     }
 
 
-    public void deleteItem(JokeItem jokeItem) {
-//        allItems.remove(jokeItem);
+    public void deleteItem(int jokeID) {
+        if (items != null && items.getValue() != null) {
+            List<JokeItem> currentItems = new ArrayList<>(items.getValue());
+            for (int i = 0; i < currentItems.size(); i++) {
+                if (currentItems.get(i).getId() == jokeID) {
+                    currentItems.remove(i);
+                    break;
+                }
+            }
+            items.setValue(currentItems); // Trigger LiveData update
+        }
+
+        if (myItems != null && myItems.getValue() != null) {
+            List<JokeItem> currentMyItems = new ArrayList<>(myItems.getValue());
+            for (int i = 0; i < currentMyItems.size(); i++) {
+                if (currentMyItems.get(i).getId() == jokeID) {
+                    currentMyItems.remove(i);
+                    break;
+                }
+            }
+            myItems.setValue(currentMyItems); // Trigger LiveData update
+        }
+//        allItems.remove();
 //        items.setValue(new ArrayList<>(allItems)); // Trigger LiveData update
     }
 

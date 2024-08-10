@@ -3,6 +3,7 @@ package com.jokerapp.view;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,21 +12,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.jokerapp.R;
 import com.jokerapp.model.JokeItem;
-import com.jokerapp.viewModel.JokeViewModel;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class JokeListAdapter extends RecyclerView.Adapter<JokeListAdapter.JokeViewHolder> {
+public class MyJokeListAdapter extends RecyclerView.Adapter<MyJokeListAdapter.JokeViewHolder> {
 
     private List<JokeItem> items;
     private OnItemClickListener listener;
 
     public interface OnItemClickListener {
         void onItemClick(JokeItem item);
+        void onEditClick(JokeItem item);
+        void onDeleteClick(JokeItem item);
     }
 
-    public JokeListAdapter(List<JokeItem> items, OnItemClickListener listener) {
+    public MyJokeListAdapter(List<JokeItem> items, OnItemClickListener listener) {
         this.items = items;
         this.listener = listener;
     }
@@ -33,7 +34,7 @@ public class JokeListAdapter extends RecyclerView.Adapter<JokeListAdapter.JokeVi
     @NonNull
     @Override
     public JokeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.joke_item_list, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_jokes_item, parent, false);
         return new JokeViewHolder(view);
     }
 
@@ -50,25 +51,37 @@ public class JokeListAdapter extends RecyclerView.Adapter<JokeListAdapter.JokeVi
 
     static class JokeViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView imageView;
         TextView titleView;
-        TextView ownerView;
-
+        ImageButton editButton;
+        ImageButton deleteButton;
         public JokeViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.item_image);
             titleView = itemView.findViewById(R.id.item_title);
-            ownerView = itemView.findViewById(R.id.item_owner);
+            deleteButton = itemView.findViewById(R.id.delete_button);
+            editButton = itemView.findViewById(R.id.edit_button);
         }
 
         public void bind(final JokeItem joke, final OnItemClickListener listener) {
       //      Picasso.get().load(joke.getImageUrl()).into(imageView);
-            ownerView.setText(joke.getOwnerName() + ":");
             titleView.setText(joke.getTitle());
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     listener.onItemClick(joke);
+                }
+            });
+
+            editButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onEditClick(joke);
+                }
+            });
+
+            deleteButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onDeleteClick(joke);
                 }
             });
         }

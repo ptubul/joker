@@ -1,43 +1,4 @@
-<!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    android:orientation="vertical"-->
-<!--    android:padding="50dp">-->
 
-<!--    <ImageView-->
-<!--        android:id="@+id/photo"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="200dp"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:layout_marginBottom="16dp"-->
-<!--        android:src="@drawable/placeholder" />-->
-<!--    <TextView-->
-<!--        android:id="@+id/detail_title"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:textSize="24sp"-->
-<!--        android:textStyle="bold"-->
-<!--        android:text="Title" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/detail_owner"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:textSize="18sp"-->
-<!--        android:text="Owner Name" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/full_joke"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:textSize="16sp"-->
-<!--        android:text="Full Joke" />-->
-
-<!--</LinearLayout>-->
-<!-- res/layout/fragment_joke_details.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"

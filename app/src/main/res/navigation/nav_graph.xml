@@ -4,6 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@id/jokeListFragment">
 
+    <action
+        android:id="@+id/action_global_my_jokes"
+        app:destination="@id/myJokeList" />
+
     <fragment
         android:id="@+id/jokeListFragment"
         android:name="com.jokerapp.view.JokeListFragment"
@@ -46,5 +50,15 @@
         <argument
             android:name="editMode"
             app:argType="boolean" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/myJokeList"
+        android:label="My jokes"
+        android:name="com.jokerapp.view.MyJokesFragment">
+        <action
+            android:id="@+id/action_jokeListFragment_to_jokeFragment"
+            app:destination="@id/jokeFragment">
+        </action>
     </fragment>
 </navigation>
