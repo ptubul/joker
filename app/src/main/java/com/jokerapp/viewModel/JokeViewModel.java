@@ -14,14 +14,13 @@ import java.util.List;
 public class JokeViewModel extends ViewModel {
     private MutableLiveData<List<JokeItem>> items;
     private MutableLiveData<List<JokeItem>> myItems;
-//    private List<JokeItem> allItems;
 
     public LiveData<List<JokeItem>> getItems() {
 
         if (items == null) {
             items = new MutableLiveData<>();
             loadItems();
-
+            Log.d("MYTAG", "tesssssssssssssssssttt");
         }
         return items;
     }
@@ -78,5 +77,6 @@ public class JokeViewModel extends ViewModel {
         allItems.add(new JokeItem(3,"https://example.com/image1.jpg", "Title 1", "Owner 1"));
         allItems.add(new JokeItem(4, "https://example.com/image2.jpg", "Title 5", "Owner 2"));
         items.setValue(allItems);
+
     }
 }

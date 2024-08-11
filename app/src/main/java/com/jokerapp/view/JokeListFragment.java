@@ -15,13 +15,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.jokerapp.R;
 import com.jokerapp.model.JokeItem;
+import com.jokerapp.viewModel.AllJokesViewModel;
 import com.jokerapp.viewModel.JokeViewModel;
 
 import java.util.List;
 
 public class JokeListFragment extends Fragment {
 
-    private JokeViewModel JokeViewModel;
+    private AllJokesViewModel allJokesViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -30,8 +31,8 @@ public class JokeListFragment extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        JokeViewModel = new ViewModelProvider(this).get(JokeViewModel.class);
-        JokeViewModel.getItems().observe(getViewLifecycleOwner(), new Observer<List<JokeItem>>() {
+        allJokesViewModel = new ViewModelProvider(this).get(AllJokesViewModel.class);
+        allJokesViewModel.getAllJokes().observe(getViewLifecycleOwner(), new Observer<List<JokeItem>>() {
             @Override
             public void onChanged(List<JokeItem> items) {
                 JokeListAdapter adapter = new JokeListAdapter(items, new JokeListAdapter.OnItemClickListener() {

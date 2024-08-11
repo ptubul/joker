@@ -17,12 +17,13 @@ import android.view.ViewGroup;
 import com.jokerapp.R;
 import com.jokerapp.model.JokeItem;
 import com.jokerapp.viewModel.JokeViewModel;
+import com.jokerapp.viewModel.MyJokesViewModel;
 
 import java.util.List;
 
 
 public class MyJokesFragment extends Fragment {
-    private JokeViewModel jokeViewModel;
+    private MyJokesViewModel myJokesViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -31,8 +32,8 @@ public class MyJokesFragment extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        jokeViewModel = new ViewModelProvider(this).get(JokeViewModel.class);
-        jokeViewModel.getItems().observe(getViewLifecycleOwner(), new Observer<List<JokeItem>>() {
+        myJokesViewModel = new ViewModelProvider(this).get(MyJokesViewModel.class);
+        myJokesViewModel.getMyJokes().observe(getViewLifecycleOwner(), new Observer<List<JokeItem>>() {
             @Override
             public void onChanged(List<JokeItem> items) {
                 MyJokeListAdapter adapter = new MyJokeListAdapter(items, new MyJokeListAdapter.OnItemClickListener() {
@@ -46,7 +47,7 @@ public class MyJokesFragment extends Fragment {
 
                     @Override
                     public void onDeleteClick(JokeItem item) {
-                        jokeViewModel.deleteItem(item.getId());
+                        myJokesViewModel.deleteJoke(item.getId());
                     }
 
                     @Override
