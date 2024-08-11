@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.jokerapp.R;
 import com.jokerapp.model.JokeItem;
 import com.jokerapp.viewModel.JokeViewModel;
@@ -31,6 +32,16 @@ public class MyJokesFragment extends Fragment {
 
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        FloatingActionButton fab = view.findViewById(R.id.fab_add_joke);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("editMode", true);
+                Navigation.findNavController(v).navigate(R.id.action_jokeListFragment_to_jokeFragment, bundle);
+            }
+        });
 
         myJokesViewModel = new ViewModelProvider(this).get(MyJokesViewModel.class);
         myJokesViewModel.getMyJokes().observe(getViewLifecycleOwner(), new Observer<List<JokeItem>>() {
