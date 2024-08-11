@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Enforces left-to-right layout direction globally -->
+        <item name="android:layoutDirection">ltr</item>
+        <!-- Other theme attributes -->
+    </style>
+</resources>
