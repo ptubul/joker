@@ -24,14 +24,22 @@ public class AllJokesViewModel extends AndroidViewModel {
     public AllJokesViewModel(Application application) {
         super(application);
         jokeRepo = new JokeRepository(application);
+        allJokes = new MutableLiveData<>();
     }
 
-    public LiveData<List<JokeItem>> getAllJokes() {
+    public MutableLiveData<List<JokeItem>> getAllJokes() {
         if (allJokes == null) {
             allJokes = new MutableLiveData<>();
-            loadJokes();
+
         }
+        loadJokes();
         return allJokes;
+    }
+
+    public void addJoke(JokeItem joke){
+        List<JokeItem> currentJokes = allJokes.getValue();
+        currentJokes.add(joke);
+        allJokes.setValue(currentJokes);
     }
 
     public void deleteJoke(String jokeID) {
@@ -43,12 +51,6 @@ public class AllJokesViewModel extends AndroidViewModel {
     }
 
     private void loadJokes() {
-//        List<JokeItem> allItems = new ArrayList<>();
-//        allItems.add(new JokeItem( 1, "https://example.com/image1.jpg", "Title 1", "Owner 1"));
-//        allItems.add(new JokeItem(2,"https://example.com/image2.jpg", "Title 5", "Owner 2"));
-//        allItems.add(new JokeItem(3,"https://example.com/image1.jpg", "Title 1", "Owner 1"));
-//        allItems.add(new JokeItem(4, "https://example.com/image2.jpg", "Title 5", "Owner 2"));
-//        allJokes.setValue(allItems);
         allJokes =jokeRepo.getAllJokes();
 //
 

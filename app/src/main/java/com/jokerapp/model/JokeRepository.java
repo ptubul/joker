@@ -33,24 +33,7 @@ private FirebaseFirestore remoteDb;
     public MutableLiveData<List<JokeItem>> getAllJokes() {
         Task<QuerySnapshot> queryTask = remoteDb.collection("jokes").get();
         allJokes = fetchJokes(queryTask);
-//        remoteDb.collection("jokes")
-//                .get()
-//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                        if (task.isSuccessful()) {
-//                            List<JokeItem> jokeList = new ArrayList<>();
-//                            for (QueryDocumentSnapshot document : task.getResult()) {
-//
-//                                JokeItem joke = document.toObject(JokeItem.class);
-////                                joke.setId(document.getId()); // Optionally set the document ID
-//                                jokeList.add(joke);
-//                            }
-//                            allJokes.setValue(jokeList);
-//
-//                        }
-//                    }
-//                });
+
         return allJokes;
     }
 
@@ -83,6 +66,21 @@ private FirebaseFirestore remoteDb;
         return  jokesResult;
     }
     public void insertJoke(JokeItem joke) {
+        Log.d("MYTAG", "inserrrrrrrrrrrrrrrrrrrrrtttttttttt");
+        remoteDb.collection("jokes").add(joke)
+                .addOnSuccessListener(documentReference -> {
+
+                    // The joke was successfully added, you can get the document ID if needed
+                    String documentId = documentReference.getId();
+                    Log.d("MYTAG", "AddRecord");
+
+                    // Optionally, log or perform further actions
+//                    System.out.println("Joke added with ID: " + documentId);
+                })
+                .addOnFailureListener(e -> {
+                    // There was an error adding the joke, handle the failure
+                    System.err.println("Error adding joke: " + e.getMessage());
+                });
 //        JokerDB.databaseWriteExecutor.execute(() -> {
 //            jokeDao.insertJoke(joke);
             // Optionally, sync with Firebase

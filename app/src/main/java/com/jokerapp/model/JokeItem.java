@@ -7,22 +7,36 @@ import androidx.room.PrimaryKey;
 
 public class JokeItem {
 
-    private String id;
-//    private String imageUrl;
-
+    private String _id;
+    private String text;
     private String title;
     private String ownerName;
+    private String ownerId;
 
     public  JokeItem(){}
 
-    public void setId(String id) {
-        this.id = id;
+    public JokeItem(String _id, String title, String ownerName, String ownerId, String text) {
+        this.title = title;
+        this.ownerName = ownerName;
+        this._id = _id;
+        this.text = text;
+        this.ownerId = ownerId;
+
+    }
+    public String getText() {
+        return text;
     }
 
-//    public void setImageUrl(String imageUrl) {
-//        this.imageUrl = imageUrl;
-//    }
-
+    public String getTitle() { return title; }
+    public String getOwnerName() { return ownerName; }
+    public String getId(){return _id;}
+    public String getOwnerId(){return  ownerId;}
+    public void setText(String text) {
+        this.text = text;
+    }
+    public void setId(String id) {
+        this._id = id;
+    }
     public void setTitle(String title) {
         this.title = title;
     }
@@ -31,14 +45,4 @@ public class JokeItem {
         this.ownerName = ownerName;
     }
 
-    public JokeItem(String id, String title, String ownerName) {
-        this.title = title;
-        this.ownerName = ownerName;
-        this.id = id;
-    }
-
-//    public String getImageUrl() { return imageUrl; }
-    public String getTitle() { return title; }
-    public String getOwnerName() { return ownerName; }
-    public String getId(){return id;}
 }

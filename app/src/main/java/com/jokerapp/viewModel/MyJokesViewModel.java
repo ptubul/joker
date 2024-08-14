@@ -33,15 +33,31 @@ public class MyJokesViewModel extends AndroidViewModel {
 
     public MyJokesViewModel(Application application) {
         super(application);
+        allJokesViewModel = new AllJokesViewModel(application);
         jokeRepo = new JokeRepository(application);
+        myJokes = new MutableLiveData<>();
+        myJokes = jokeRepo.getJokesByOwner("2222");
     }
 
-    public LiveData<List<JokeItem>> getMyJokes() {
+    public MutableLiveData<List<JokeItem>> getMyJokes() {
         if (myJokes == null) {
-            myJokes = new MutableLiveData<>();
+//            myJokes = new MutableLiveData<>();
             loadMyJokes();
         }
         return myJokes;
+    }
+
+    public void addJoke(JokeItem joke){
+
+
+        jokeRepo.insertJoke(joke);
+        if (myJokes == null) {
+            Log.d("MYTAG", String.valueOf(myJokes));
+        }
+        List<JokeItem> currentJokes = myJokes.getValue();
+        currentJokes.add(joke);
+        myJokes.setValue(currentJokes);
+        Log.d("MYTAG", "after aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
     }
 
     public void deleteJoke(String jokeID) {
