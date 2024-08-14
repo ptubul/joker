@@ -42,6 +42,8 @@
 package com.jokerapp.view;
 
 import com.jokerapp.R;
+import com.jokerapp.model.Joke;
+import com.jokerapp.model.JokeRepository;
 
 import android.os.Bundle;
 import android.view.Menu;

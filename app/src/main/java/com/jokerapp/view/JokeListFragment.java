@@ -1,12 +1,15 @@
 package com.jokerapp.view;
 
+import android.app.Application;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
@@ -15,6 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.jokerapp.R;
 import com.jokerapp.model.JokeItem;
+import com.jokerapp.model.User;
+import com.jokerapp.model.UserRepository;
 import com.jokerapp.viewModel.AllJokesViewModel;
 import com.jokerapp.viewModel.JokeViewModel;
 

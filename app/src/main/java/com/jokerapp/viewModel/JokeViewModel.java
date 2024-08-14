@@ -38,7 +38,7 @@ public class JokeViewModel extends ViewModel {
         if (items != null && items.getValue() != null) {
             List<JokeItem> currentItems = new ArrayList<>(items.getValue());
             for (int i = 0; i < currentItems.size(); i++) {
-                if (currentItems.get(i).getId() == jokeID) {
+                if (currentItems.get(i).getId().equals(jokeID)) {
                     currentItems.remove(i);
                     break;
                 }
@@ -49,7 +49,7 @@ public class JokeViewModel extends ViewModel {
         if (myItems != null && myItems.getValue() != null) {
             List<JokeItem> currentMyItems = new ArrayList<>(myItems.getValue());
             for (int i = 0; i < currentMyItems.size(); i++) {
-                if (currentMyItems.get(i).getId() == jokeID) {
+                if (currentMyItems.get(i).getId().equals(jokeID)) {
                     currentMyItems.remove(i);
                     break;
                 }
@@ -71,12 +71,12 @@ public class JokeViewModel extends ViewModel {
     }
 
     private void loadItems() {
-        List<JokeItem> allItems = new ArrayList<>();
-        allItems.add(new JokeItem( 1, "https://example.com/image1.jpg", "Title 1", "Owner 1"));
-        allItems.add(new JokeItem(2,"https://example.com/image2.jpg", "Title 5", "Owner 2"));
-        allItems.add(new JokeItem(3,"https://example.com/image1.jpg", "Title 1", "Owner 1"));
-        allItems.add(new JokeItem(4, "https://example.com/image2.jpg", "Title 5", "Owner 2"));
-        items.setValue(allItems);
+//        List<JokeItem> allItems = new ArrayList<>();
+//        allItems.add(new JokeItem( 1, "https://example.com/image1.jpg", "Title 1", "Owner 1"));
+//        allItems.add(new JokeItem(2,"https://example.com/image2.jpg", "Title 5", "Owner 2"));
+//        allItems.add(new JokeItem(3,"https://example.com/image1.jpg", "Title 1", "Owner 1"));
+//        allItems.add(new JokeItem(4, "https://example.com/image2.jpg", "Title 5", "Owner 2"));
+//        items.setValue(allItems);
 
     }
 }

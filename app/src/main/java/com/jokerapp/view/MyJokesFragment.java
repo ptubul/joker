@@ -64,7 +64,7 @@ public class MyJokesFragment extends Fragment {
                     @Override
                     public void onEditClick(JokeItem item) {
                         Bundle bundle = new Bundle();
-                        bundle.putInt("id", item.getId());
+                        bundle.putString("id", item.getId());
                         bundle.putBoolean("editMode", true);
                         Navigation.findNavController(view).navigate(R.id.action_jokeListFragment_to_jokeFragment    , bundle);
                     }
